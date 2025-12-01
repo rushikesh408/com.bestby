@@ -4,6 +4,7 @@ from sqlalchemy.orm import Session
 from db.database import get_db
 from db.product_details import Product_Details
 from db.schemas import ProductDetailsCreate, ProductDetailsResponse
+from typing import List
 
 
 router = APIRouter()
@@ -20,9 +21,15 @@ def create_new_product(
         merchant=product_data.merchant,
         price=product_data.price,
         useremail=product_data.useremail,
+        expiry_date = product_data.expiry_date
     )
+  
     db.add(new_product)
     db.commit()
     db.refresh(new_product)
 
     return new_product
+
+
+
+

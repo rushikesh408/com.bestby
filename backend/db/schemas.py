@@ -1,26 +1,29 @@
 from pydantic import BaseModel
+from datetime import date, datetime
+import uuid
+
 
 
 class ProductDetailsCreate(BaseModel):
     name: str
-    # expiry_date : date
+    expiry_date : date
     remainder: bool
     remindBefore: int
     merchant: str
-    price: int
+    price: float
     useremail: str
 
 
 class ProductDetailsResponse(BaseModel):
     id: int
     name: str
-    # updated_at : Date
-    # expiry_date = Column(Date)
+    updated_at : datetime
+    expiry_date : date
     remainder: int
     remindBefore: int
     merchant: str
-    price: bool
-    # product_uuid :
+    price: float
+    # product_uuid :uuid
     useremail: str
 
     class Config:

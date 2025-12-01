@@ -19,6 +19,6 @@ class Product_Details(Base):
     merchant = Column(String)
     price = Column(Integer)
     product_uuid = Column(UUID(as_uuid=True), default=uuid.uuid4)
-    useremail = Column(String(100), unique=True, nullable=False)
+    useremail = Column(String(100), nullable=False)
 
     # this is a product_Details model and models are just a table structure
